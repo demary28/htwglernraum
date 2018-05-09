@@ -1,17 +1,68 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title text-align:center>Available rooms</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+  <ion-card>
+    <ion-card-title>
+      O 206
+    </ion-card-title>
+      <img src="assets/imgs/littleYellow.png"/>
+      <ion-row class="card-subtitle">
+          <ion-col >
+              <p>presence:</p> 
+              <p>true</p> 
+          </ion-col>
+          <ion-col>
+              <p>CO2</p> 
+              <p>1000 ppm</p> 
+          </ion-col>
+          <ion-col>
+              <p>Noise</p> 
+              <p>56 db</p> 
+          </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-title>
+          O 207
+        </ion-card-title>
+          <img src="assets/imgs/littleYellow.png"/>
+          <ion-row class="card-subtitle">
+              <ion-col with-30 style="text-align: center">
+                  <p>presence:</p> 
+                  <p>true</p> 
+              </ion-col>
+              <ion-col with-30 style="text-align: center">
+                  <p>CO2</p> 
+                  <p>1000 ppm</p> 
+              </ion-col>
+              <ion-col with-30 style="text-align: center">
+                  <p>Noise</p> 
+                  <p>56 db</p> 
+              </ion-col>
+            </ion-row>
+        </ion-card>
+
+
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+      <ion-col with-30>
+          <img src="assets/imgs/littleGreen.png" id="summeryIcons">
+          <p text-center>good</p>
+      </ion-col>
+      <ion-col with-30>
+          <img src="assets/imgs/littleYellow.png" id="summeryIcons">
+          <p text-center>ok</p>
+      </ion-col>
+      <ion-col with-30>
+          <img src="assets/imgs/littleRed.png" id="summeryIcons">
+          <p text-center>bad</p>
+      </ion-col>
+  </ion-row>
+</ion-footer>
