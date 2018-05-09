@@ -7,8 +7,20 @@ page-home {
         margin: 1%; 
     }
 
-    #summeryIcons{
-        height: auto;
+    .summeryIcons{
+      text-align: center;
+
+        .card-title {
+          position: absolute;
+          bottom: 21%;
+          top: 21%;
+          right:22%;
+          left:0%;
+          font-size: 1.0em;
+          width: 100%;
+          color: #fff;
+        }
+      
     }
 
     .card-background-page {
