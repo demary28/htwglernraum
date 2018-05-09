@@ -7,8 +7,14 @@ import { NavController } from 'ionic-angular';
 })
 export class SensorDataPage {
 
+  public RoomID : String =  "Please choose a room";
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  public setRoomID(id:String){
+    this.RoomID = id;
   }
 
 }
