@@ -31,10 +31,7 @@ export class SensorDataPage {
   }
 
   showFullImage(img, title){
-    //File.readAsDataURL(cordova.file.applicationDirectory + "www/", "image.jpg")
-    //.then((dataURL:string) => {this.photoViewer.show(dataURL)})
-    //www/assets/img/exampleimg.jpg
-    this.photoViewer.show(this.file.applicationDirectory + img, title, {share: true});
+    this.photoViewer.show(this.file.applicationDirectory + img, title, {share: false});
    
   }
 

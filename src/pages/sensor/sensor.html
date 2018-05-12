@@ -7,29 +7,39 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-<p *ngIf="aktualisiert">Raumname</p>
-<p>{{RoomID}}</p>
+<ion-content padding class="sensorLayout">
+<p *ngIf="aktualisiert==false"> {{RoomID}}</p>
 
 <ng-container *ngIf="aktualisiert">
-  <p>Presence</p> 
-  <p>{{Presence}}</p>
-
-  <p>CO2</p> 
-  <p>{{Air}} ppm</p> 
-
-  <p>Noise</p> 
-  <p>{{Noise}} db</p> 
-
-  <p>Anzahl Arbeitsplätze</p> 
-  <p>8</p>
-
-  <p>Raumplan</p> 
-  <img src="assets/imgs/BeispielRaumPlan.png" height="180"/>
-
+  <h2> Raum {{RoomID}}</h2>
+    <ion-row class="sensorLayout">
+        <ion-col >
+            <p>Presence</p> 
+            <p>{{Presence}}</p>
+        </ion-col>
+        <ion-col>
+            <p>CO2</p> 
+            <p>{{Air}} ppm</p> 
+        </ion-col>
+        <ion-col>
+            <p>Noise</p> 
+            <p>{{Noise}} db</p> 
+        </ion-col>
+    </ion-row>
+  
+  <ion-row class="sensorLayout">
+    <ion-col>
+        <p>Raumplan</p> 
+        <img src="assets/imgs/BeispielRaumPlan.png" height="180"/>
+    </ion-col>
+    <ion-col>
+      <p>Anzahl Arbeitsplätze</p> 
+      <p>8</p>
+    </ion-col>  
+  </ion-row>
 
   <p>Lageplan</p> 
-  <img src="assets/imgs/Lageplan.png" height="180" (tap)="showFullImage('www/assets/imgs/LagePlan.png', 'Lageplan')" />
+  <img src="assets/imgs/Lageplan.png" height="180" (tap)="showFullImage('www/assets/imgs/Lageplan.png', 'Lageplan')" />
 </ng-container>
 
 
