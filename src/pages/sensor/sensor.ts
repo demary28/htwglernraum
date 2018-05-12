@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-sensor',
@@ -7,14 +7,23 @@ import { NavController } from 'ionic-angular';
 })
 export class SensorDataPage {
 
-  public RoomID : String =  "Please choose a room";
+  private RoomID : String =  "Please choose a room";
+  private Presence : String;
+  private Air: String;
+  private Noise : String;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public events:Events) {
+    events.subscribe('setRoomID', (id, presence, air, noise) => {
+      this.setRoom(id, presence, air, noise);
+    })
   }
 
-  public setRoomID(id:String){
+
+  public setRoom(id:String, presence:String, air:String, noise: String){
     this.RoomID = id;
+    this.Presence = presence;
+    this.Air = air;
+    this.Noise = noise;
   }
 
 }

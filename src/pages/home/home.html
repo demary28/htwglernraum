@@ -1,68 +1,99 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-align:center>Available rooms</ion-title>
+    <ion-title text-align:center>Student Rooms</ion-title>
     <ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-card (tap)="showRoomInfo('O206')">
+
+    <ion-fab top right edge>
+        <button ion-fab color="vibrant" mini (tap)="updateCards()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-fab>
+
+    <ng-container *ngIf="O206visible">
+    <ion-card (tap)="showRoomInfo('O206')" >
     <ion-card-title>
       O 206
     </ion-card-title>
-      <img src="assets/imgs/littleRed.png"/>
+      <img src="assets/imgs/little{{O206Color}}.png" height="180"/>
       <ion-row class="card-subtitle">
           <ion-col >
               <p>presence:</p> 
-              <p>true</p> 
+              <p>{{O206Presence}}</p> 
           </ion-col>
           <ion-col>
               <p>CO2</p> 
-              <p>1000 ppm</p> 
+              <p>{{O206Air}} ppm</p> 
           </ion-col>
           <ion-col>
               <p>Noise</p> 
-              <p>56 db</p> 
+              <p>{{O206Noise}} db</p> 
           </ion-col>
         </ion-row>
     </ion-card>
+</ng-container>
 
+<ng-container *ngIf="O207visible">
     <ion-card (tap)="showRoomInfo('O207')">
         <ion-card-title>
           O 207
         </ion-card-title>
-          <img src="assets/imgs/littleYellow.png"/>
+          <img src="assets/imgs/little{{O207Color}}.png" height="180"/>
           <ion-row class="card-subtitle">
               <ion-col with-30 style="text-align: center">
                   <p>presence:</p> 
-                  <p>true</p> 
+                  <p>{{O207Presence}}</p> 
               </ion-col>
               <ion-col with-30 style="text-align: center">
                   <p>CO2</p> 
-                  <p>1000 ppm</p> 
+                  <p>{{O207Air}} ppm</p> 
               </ion-col>
               <ion-col with-30 style="text-align: center">
                   <p>Noise</p> 
-                  <p>56 db</p> 
+                  <p>{{O207Noise}} db</p> 
               </ion-col>
+        </ion-row>
+    </ion-card>
+</ng-container>
+
+<ng-container *ngIf="O208visible">
+    <ion-card (tap)="showRoomInfo('O208')">
+        <ion-card-title>
+            O 208
+        </ion-card-title>
+            <img src="assets/imgs/little{{O208Color}}.png" height="180"/>
+            <ion-row class="card-subtitle">
+                <ion-col >
+                    <p>presence:</p> 
+                    <p>{{O208Presence}}</p> 
+                </ion-col>
+                <ion-col>
+                    <p>CO2</p> 
+                    <p>{{O208Air}} ppm</p> 
+                </ion-col>
+                <ion-col>
+                    <p>Noise</p> 
+                    <p>{{O208Noise}} db</p> 
+                </ion-col>
             </ion-row>
         </ion-card>
-
+    </ng-container>
 
 </ion-content>
 
 <ion-footer >
   <ion-row  class="summeryIcons">
-      <ion-col with-30>
-          <img src="assets/imgs/littleGreen.png" >
+      <ion-col with-30 (tap)="filter('Green')">
+          <img src="assets/imgs/littleGreen.png"  height="60">
           <p class="card-title" text-align:center >good</p>
       </ion-col>
-      <ion-col with-30>
-          <img src="assets/imgs/littleYellow.png" >
+      <ion-col with-30 (tap)="filter('Yellow')">
+          <img src="assets/imgs/littleYellow.png" height="60">
           <p class="card-title">ok</p>
       </ion-col>
-      <ion-col with-30>
-          <img src="assets/imgs/littleRed.png">
+      <ion-col with-30 (tap)="filter('Red')">
+          <img src="assets/imgs/littleRed.png" height="60">
           <p class="card-title">bad</p>
       </ion-col>
   </ion-row>
