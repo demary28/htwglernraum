@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Sensor Details
+      Room \& Sensor Details
     </ion-title>
     <ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+<p *ngIf="aktualisiert">Raumname</p>
 <p>{{RoomID}}</p>
+
+<ng-container *ngIf="aktualisiert">
+  <p>Presence</p> 
+  <p>{{Presence}}</p>
+
+  <p>CO2</p> 
+  <p>{{Air}} ppm</p> 
+
+  <p>Noise</p> 
+  <p>{{Noise}} db</p> 
+
+  <p>Anzahl Arbeitsplätze</p> 
+  <p>8</p>
+
+  <p>Raumplan</p> 
+  <img src="assets/imgs/BeispielRaumPlan.png" height="180"/>
+
+
+  <p>Lageplan</p> 
+  <img src="assets/imgs/Lageplan.png" height="180" (tap)="showFullImage('www/assets/imgs/LagePlan.png', 'Lageplan')" />
+</ng-container>
+
 
 </ion-content>
