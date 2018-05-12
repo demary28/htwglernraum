@@ -5,9 +5,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
+<ion-content class="card-background-page" >
 
-    <ion-fab top right edge>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content 
+        pullingIcon="arrow-round-down"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+            
+
+    <ion-fab right bottom>
         <button ion-fab color="vibrant" mini (tap)="updateCards()"><ion-icon name="refresh"></ion-icon></button>
     </ion-fab>
 

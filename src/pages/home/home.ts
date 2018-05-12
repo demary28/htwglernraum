@@ -31,6 +31,11 @@ export class HomePage {
 
   }
 
+  doRefresh(refresher) {
+    this.updateCards();
+    refresher.complete();
+  }
+
 
   showRoomInfo(id:String){
     if (id == "O206"){
@@ -44,13 +49,6 @@ export class HomePage {
     }
     
     this.navCtrl.parent.select(1);
-  }
-  wait(ms){
-    var start = new Date().getTime();
-    var end = start;
-    while(end < start + ms){
-      end = new Date().getTime();
-    }
   }
 
   updateCards(){
