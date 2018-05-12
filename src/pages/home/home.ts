@@ -58,20 +58,20 @@ export class HomePage {
     });
      loader.present();
     
-    this.O206Color = "Red";
-    this.O206Presence = "detected";
-    this.O206Air = "1834";
-    this.O206Noise = "89";
-  
-    this.O207Color = "Yellow";
+    this.O207Color = "Red";
     this.O207Presence = "detected";
-    this.O207Air = "678";
-    this.O207Noise = "65";
+    this.O207Air = "1834";
+    this.O207Noise = "89";
+  
+    this.O208Color = "Yellow";
+    this.O208Presence = "detected";
+    this.O208Air = "678";
+    this.O208Noise = "65";
 
-    this.O208Color = "Green";
-    this.O208Presence = "not detected";
-    this.O208Air = "462";
-    this.O208Noise = "23";
+    this.O206Color = "Green";
+    this.O206Presence = "not detected";
+    this.O206Air = "462";
+    this.O206Noise = "23";
     
     this.showAll();
     loader.dismiss();
