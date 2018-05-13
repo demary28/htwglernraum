@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, NavParams } from 'ionic-angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
+import { NAV } from 'ionic-angular/navigation/nav-util';
 
 @Component({
   selector: 'page-sensor',
@@ -15,7 +16,18 @@ export class SensorDataPage {
   private Noise : String;
   public aktualisiert: Boolean = false;
 
-  constructor(public navCtrl: NavController, public events:Events, private photoViewer: PhotoViewer, private file: File) {
+  constructor(public navCtrl: NavController, 
+              public events:Events, 
+              private photoViewer: PhotoViewer, 
+              private file: File, 
+              public navParams: NavParams) {
+
+    this.RoomID = navParams.get("id");
+    this.Presence = navParams.get("Presence");
+    this.Air = navParams.get("Air");
+    this.Noise = navParams.get("Noise");
+    this.aktualisiert = navParams.get("Actu");
+    
     events.subscribe('setRoomID', (id, presence, air, noise) => {
       this.setRoom(id, presence, air, noise);
     })

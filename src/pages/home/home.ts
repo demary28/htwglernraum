@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Events, AlertController, LoadingController  } from 'ionic-angular';
+import { SensorDataPage } from '../sensor/sensor';
 
 
 @Component({
@@ -27,28 +28,35 @@ export class HomePage {
    O208Noise: String = "?";
    O208visible: Boolean = true;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public events: Events, public loadingCtrl: LoadingController) {
+   Aktualisiert: Boolean = false;
 
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public events: Events, public loadingCtrl: LoadingController) {
   }
 
   doRefresh(refresher) {
     this.updateCards();
     refresher.complete();
+    this.Aktualisiert = true;
   }
 
 
   showRoomInfo(id:String){
-    if (id == "O206"){
-      this.events.publish('setRoomID', id, this.O206Presence, this.O206Air, this.O206Noise);
+    if (this.Aktualisiert==true){
+      if (id == "O206"){
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});
+        //this.events.publish('setRoomID', id, this.O206Presence, this.O206Air, this.O206Noise);
+      }
+      if (id == "O207"){
+        //this.events.publish('setRoomID', id, this.O207Presence, this.O207Air, this.O207Noise);
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O207Presence, Air: this.O207Air, Noise: this.O207Noise, Actu:true});
+      }
+      if (id == "O208"){
+        //this.events.publish('setRoomID', id, this.O208Presence, this.O208Air, this.O208Noise);
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O208Presence, Air: this.O208Air, Noise: this.O208Noise, Actu:true});
+
+      }
+      //this.navCtrl.parent.select(1);      
     }
-    if (id == "O207"){
-      this.events.publish('setRoomID', id, this.O207Presence, this.O207Air, this.O207Noise);
-    }
-    if (id == "O208"){
-      this.events.publish('setRoomID', id, this.O208Presence, this.O208Air, this.O208Noise);
-    }
-    
-    this.navCtrl.parent.select(1);
   }
 
   updateCards(){
@@ -81,15 +89,16 @@ export class HomePage {
     //let alert = this.alertCtrl.create({title: ""+category, subTitle: "", buttons:['OK']});
     //alert.present();
     this.showAll();
-
-    if(this.O206Color!=category){
-      this.O206visible = false;
-    }
-    if(this.O207Color!=category){
-      this.O207visible = false;
-    }
-    if(this.O208Color!=category){
-      this.O208visible = false;
+    if (this.Aktualisiert==true){
+      if(this.O206Color!=category){
+        this.O206visible = false;
+      }
+      if(this.O207Color!=category){
+        this.O207visible = false;
+      }
+      if(this.O208Color!=category){
+        this.O208visible = false;
+      }
     }
   }
 
