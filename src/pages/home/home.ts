@@ -94,9 +94,12 @@ export class HomePage {
     this.showAll();
     if (this.Aktualisiert==true){
       
-      if (this.FilterRed == true  && category == "Red"){
+      if (this.FilterRed == true && category == "Red"){
+        this.FilterRed = false;
       }else if(this.FilterYellow == true && category == "Yellow"){
+        this.FilterYellow = false;
       }else if(this.FilterGreen == true  && category == "Green"){
+        this.FilterGreen = false;
       }else{
 
         if(this.O206Color!=category){
@@ -108,7 +111,6 @@ export class HomePage {
         if(this.O208Color!=category){
           this.O208visible = false;
         }
-      }
 
       if (category == "Red"){
         this.FilterRed = true;
@@ -116,6 +118,7 @@ export class HomePage {
         this.FilterYellow = true;
       } else if(category == "Green"){
         this.FilterGreen = true;
+      }
       }
     }
   }
