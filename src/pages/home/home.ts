@@ -46,11 +46,9 @@ export class HomePage {
   showRoomInfo(id:String){
     if (this.Aktualisiert==true){
       if (id == "O206"){
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});
-        //this.events.publish('setRoomID', id, this.O206Presence, this.O206Air, this.O206Noise);
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});      
       }
       if (id == "O207"){
-        //this.events.publish('setRoomID', id, this.O207Presence, this.O207Air, this.O207Noise);
         this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O207Presence, Air: this.O207Air, Noise: this.O207Noise, Actu:true});
       }
       if (id == "O208"){
@@ -85,6 +83,7 @@ export class HomePage {
     this.O206Noise = "23";
     
     this.showAll();
+    this.Aktualisiert = true;
     loader.dismiss();
   }
 
