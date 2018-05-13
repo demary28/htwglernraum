@@ -29,6 +29,9 @@ export class HomePage {
    O208visible: Boolean = true;
 
    Aktualisiert: Boolean = false;
+   FilterRed: Boolean = false;
+   FilterYellow: Boolean = false;
+   FilterGreen: Boolean = false;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public events: Events, public loadingCtrl: LoadingController) {
   }
@@ -90,14 +93,29 @@ export class HomePage {
     //alert.present();
     this.showAll();
     if (this.Aktualisiert==true){
-      if(this.O206Color!=category){
-        this.O206visible = false;
+      
+      if (this.FilterRed == true  && category == "Red"){
+      }else if(this.FilterYellow == true && category == "Yellow"){
+      }else if(this.FilterGreen == true  && category == "Green"){
+      }else{
+
+        if(this.O206Color!=category){
+          this.O206visible = false;
+        }
+        if(this.O207Color!=category){
+          this.O207visible = false;
+        }
+        if(this.O208Color!=category){
+          this.O208visible = false;
+        }
       }
-      if(this.O207Color!=category){
-        this.O207visible = false;
-      }
-      if(this.O208Color!=category){
-        this.O208visible = false;
+
+      if (category == "Red"){
+        this.FilterRed = true;
+      } else if(category == "Yellow"){
+        this.FilterYellow = true;
+      } else if(category == "Green"){
+        this.FilterGreen = true;
       }
     }
   }
