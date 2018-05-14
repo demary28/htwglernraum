@@ -102,6 +102,7 @@ export class HomePage {
     this.O206Noise = "23";
     
     this.showAll();
+    this.Aktualisiert = true;
     loader.dismiss();
   }
 
