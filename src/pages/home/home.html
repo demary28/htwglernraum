@@ -16,8 +16,14 @@
     </ion-refresher>
             
 
-    <ion-fab right bottom>
-        <button ion-fab color="vibrant" mini (tap)="updateCards()"><ion-icon name="refresh"></ion-icon></button>
+    
+    <ion-fab right bottom #fab1>
+        <button ion-fab color="vibrant" mini ><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab (tap)="fabController('update', fab1)"><ion-icon name="refresh"></ion-icon></button>
+            <button ion-fab (tap)="fabController('settings', fab1)"><ion-icon name="settings"></ion-icon></button>
+
+        </ion-fab-list>
     </ion-fab>
 
     <ng-container *ngIf="O206visible">

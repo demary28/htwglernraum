@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, Events, AlertController, LoadingController  } from 'ionic-angular';
+import { NavController, Events, AlertController, LoadingController, FabContainer  } from 'ionic-angular';
 import { SensorDataPage } from '../sensor/sensor';
+import { SettingsPage } from '../settings/settings';
 
 
 @Component({
@@ -32,6 +33,8 @@ export class HomePage {
    FilterRed: Boolean = false;
    FilterYellow: Boolean = false;
    FilterGreen: Boolean = false;
+
+  
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public events: Events, public loadingCtrl: LoadingController) {
   }
@@ -83,8 +86,19 @@ export class HomePage {
     this.O206Noise = "23";
     
     this.showAll();
-    this.Aktualisiert = true;
     loader.dismiss();
+  }
+
+  fabController(actionString: string, fab: FabContainer){
+    
+    if (actionString == "update"){
+      this.updateCards();
+      this.Aktualisiert = true;
+    }
+    if(actionString == "settings"){
+      this.navCtrl.push(SettingsPage);
+    }
+    fab.close();
   }
 
   filter(category:String){
