@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, Events, AlertController, LoadingController, FabContainer  } from 'ionic-angular';
 import { SensorDataPage } from '../sensor/sensor';
 import { SettingsPage } from '../settings/settings';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @Component({
@@ -30,13 +31,28 @@ export class HomePage {
    O208visible: Boolean = true;
 
    Aktualisiert: Boolean = false;
+   AutoLoadActivatet: Boolean;
    FilterRed: Boolean = false;
    FilterYellow: Boolean = false;
    FilterGreen: Boolean = false;
 
   
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public events: Events, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, 
+    public alertCtrl: AlertController, 
+    public events: Events, 
+    public loadingCtrl: LoadingController, 
+    private nativeStorage: NativeStorage
+  ) {
+    this.checkAutoLoad();
+  }
+
+  checkAutoLoad(){
+    this.nativeStorage.getItem('SettingAutoLoad')
+      .then(
+        data => {if (data.autoLoad == "true"){this.updateCards();}},
+        error => {console.error('no autoLoadSettings')}
+      );
   }
 
   doRefresh(refresher) {

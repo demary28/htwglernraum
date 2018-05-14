@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { File } from '@ionic-native/file';
     StatusBar,
     SplashScreen,
     PhotoViewer,
+    NativeStorage,   
     File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
