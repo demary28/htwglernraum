@@ -1,0 +1,22 @@
+.dark-theme {
+
+    $bodyBackground: #110521;
+    $navBarBackground: #040f1f;
+    $canceled: #ffea00;
+    $textColor: #e3e3e3;
+    $rowColor: linear-gradient(to bottom, #30304c 0%, #1a2232 49%, #0e1113 100%);
+    $rowBorder: thin solid rgba(35, 34, 71, 0.7);
+    $facebook: #4267B2;
+    $fadedText: rgba(255, 255, 255, 0.5);
+    $menuBorder: rgba(128, 128, 128, 0.51);
+  
+    $sectionHeaderBackground: linear-gradient(90deg, rgb(26, 59, 74) 0%, rgb(28, 32, 51) 20%, rgba(20, 19, 18, 0) 60%);
+    $tableHeaderBackground: linear-gradient(to bottom, rgba(42,42,51,1) 0%, rgba(20,57,82,1) 51%, rgba(20,19,18,1) 100%);
+    $tableBackground: #000048;
+    $tableBorder: thin solid grey;
+    $tableRowBackground: linear-gradient(to bottom, rgba(72,72,87,1) 0%, rgba(42,78,102,1) 51%, rgba(57,62,92,1) 100%);
+  
+    .sectionHeaderColors {
+      background: $sectionHeaderBackground;
+    }
+  }
