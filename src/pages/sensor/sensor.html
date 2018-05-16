@@ -11,7 +11,7 @@
 <p *ngIf="aktualisiert==false"> {{RoomID}}</p>
 
 <ng-container *ngIf="aktualisiert">
-  <h2> Raum {{RoomID}}</h2>
+  <h2> Room {{RoomID}}</h2>
     <ion-row class="sensorLayout">
         <ion-col >
             <p>Presence</p> 
@@ -26,19 +26,21 @@
             <p>{{Noise}} db</p> 
         </ion-col>
     </ion-row>
+    <p class="sensorLayout">{{bewertung}}</p>
   
   <ion-row class="sensorLayout">
     <ion-col>
-        <p>Raumplan</p> 
-        <img src="assets/imgs/BeispielRaumPlan.png" height="180" (tap)="showFullImage('www/assets/imgs/BeispielRaumPlan.png', 'BeispielRaumPlan')"/>
+        <p>Room map</p> 
+        <img src="assets/imgs/BeispielRaumPlan.png" height="180" (tap)="showFullImage('www/assets/imgs/BeispielRaumPlan.png', 'Sample Room Map')"/>
     </ion-col>
     <ion-col>
-      <p>Anzahl Arbeitsplätze</p> 
+      <p>Number of workplaces</p> 
       <p>8</p>
+      <p>*Note that we do not monitor every place. We can not garantee that a workplace is available.</p>
     </ion-col>  
   </ion-row>
 
-  <p>Lageplan</p> 
+  <p>Map of the area</p> 
   <img src="assets/imgs/Lageplan.png" height="180" (tap)="showFullImage('www/assets/imgs/Lageplan.png', 'Lageplan')" />
 </ng-container>
 
