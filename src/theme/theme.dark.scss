@@ -1,22 +1,50 @@
 .dark-theme {
 
-    $bodyBackground: #110521;
-    $navBarBackground: #040f1f;
-    $canceled: #ffea00;
-    $textColor: #e3e3e3;
-    $rowColor: linear-gradient(to bottom, #30304c 0%, #1a2232 49%, #0e1113 100%);
-    $rowBorder: thin solid rgba(35, 34, 71, 0.7);
-    $facebook: #4267B2;
-    $fadedText: rgba(255, 255, 255, 0.5);
-    $menuBorder: rgba(128, 128, 128, 0.51);
-  
-    $sectionHeaderBackground: linear-gradient(90deg, rgb(26, 59, 74) 0%, rgb(28, 32, 51) 20%, rgba(20, 19, 18, 0) 60%);
-    $tableHeaderBackground: linear-gradient(to bottom, rgba(42,42,51,1) 0%, rgba(20,57,82,1) 51%, rgba(20,19,18,1) 100%);
-    $tableBackground: #000048;
-    $tableBorder: thin solid grey;
-    $tableRowBackground: linear-gradient(to bottom, rgba(72,72,87,1) 0%, rgba(42,78,102,1) 51%, rgba(57,62,92,1) 100%);
-  
-    .sectionHeaderColors {
-      background: $sectionHeaderBackground;
-    }
+
+  // From here to the next checkpoint is for theming the header - toolbar navbar but not the main content 
+  transition: all 1.1s ease;
+  background-color: #110521;
+  p,
+  .toolbar-title,
+  .bar-button-default,
+  body,
+  div {
+    transition: all 1.1s ease;
+    color: white;
   }
+  .onboard {
+    border-color: #110521 !important;
+  }
+  .toolbar-background,
+  .toggle-checked {
+    transition: all 1.1s ease;
+    background-color: #110521 !important;
+  }
+
+  //From here is where the main content is modified, this includes the backgorund of the page, ion-items and more
+
+  ion-content,
+  .input-wrapper,
+  .item-inner,
+  .item,
+  ion-footer,
+  ion-item,
+  ion-label {
+    transition: all 1.1s ease;
+    background-color: #110521 !important;
+    background: #110521 !important;
+    color: white !important;
+  }
+  ion-list {
+    background-color: rgb(59, 42, 42);
+  }
+  .time {
+    background-color: rgb(59, 42, 42);
+  }
+  .item {
+    transition: all 1s ease;
+    background-color: rgb(59, 42, 42);
+    color: white;
+  }
+  
+}

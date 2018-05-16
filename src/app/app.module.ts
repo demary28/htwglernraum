@@ -15,6 +15,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HTTP } from '@ionic-native/http';
+import { SettingsDarkProvider } from '../providers/settingdark/settingdark';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HTTP } from '@ionic-native/http';
     NativeStorage,   
     File,
     HTTP,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SettingsDarkProvider
   ]
 })
 export class AppModule {}

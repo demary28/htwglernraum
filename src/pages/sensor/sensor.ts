@@ -54,7 +54,7 @@ export class SensorDataPage {
         break;
       }
       case (this.Presence=="detected" && this.Air<=1000 && this.Noise>=62):{
-        this.bewertung = "Seems that either many people are working in that room with open window or few people loudly. Recommendation: Give it a try, when you have headphones :)";
+        this.bewertung = "Seems that either many people are working in that room with open window or few people loudly. Recommendation: Give it a try and bring headphones :)";
         break;
       }
       case (this.Presence=="detected" && this.Air>=1000 && this.Noise>=62):{

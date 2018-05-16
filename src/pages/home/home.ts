@@ -4,6 +4,7 @@ import { SensorDataPage } from '../sensor/sensor';
 import { SettingsPage } from '../settings/settings';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HTTP } from '@ionic-native/http';
+import { SettingsDarkProvider } from '../../providers/settingdark/settingdark';
 
 
 @Component({
@@ -37,6 +38,8 @@ export class HomePage {
    FilterYellow: Boolean = false;
    FilterGreen: Boolean = false;
 
+   selectedTheme: String;
+
   
 
   constructor(public navCtrl: NavController, 
@@ -44,9 +47,11 @@ export class HomePage {
     public events: Events, 
     public loadingCtrl: LoadingController, 
     private nativeStorage: NativeStorage, 
-    private http: HTTP
+    private http: HTTP, 
+    private settings: SettingsDarkProvider
   ) {
     this.checkAutoLoad();
+    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
   }
 
   checkAutoLoad(){
@@ -62,6 +67,8 @@ export class HomePage {
     refresher.complete();
     this.Aktualisiert = true;
   }
+
+
 
 
   showRoomInfo(id:String){
