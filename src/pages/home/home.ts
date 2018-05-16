@@ -90,8 +90,11 @@ export class HomePage {
 
      this.http.get('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new',{},{})
         .then(
-          data => console.log('data received'),
-          error => console.log('error loading data')
+          data => {let alert = this.alertCtrl.create({title: "HTTP", subTitle: ""+JSON.stringify(data.data), buttons:['OK']});
+              //alert.present();
+              console.log('data received')},
+          error => {let alert = this.alertCtrl.create({title: "HTTP Error", subTitle: "There is a problem with your internet connection. "+JSON.stringify(error), buttons:['OK']});
+              alert.present();console.log('error loading data')}
         );
     
     this.O207Color = "Red";
