@@ -3,6 +3,7 @@ import { NavController, Events, AlertController, LoadingController, FabContainer
 import { SensorDataPage } from '../sensor/sensor';
 import { SettingsPage } from '../settings/settings';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { HTTP } from '@ionic-native/http';
 
 
 @Component({
@@ -42,7 +43,8 @@ export class HomePage {
     public alertCtrl: AlertController, 
     public events: Events, 
     public loadingCtrl: LoadingController, 
-    private nativeStorage: NativeStorage
+    private nativeStorage: NativeStorage, 
+    private http: HTTP
   ) {
     this.checkAutoLoad();
   }
@@ -85,6 +87,12 @@ export class HomePage {
         
     });
      loader.present();
+
+     this.http.get('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new',{},{})
+        .then(
+          data => console.log('data received'),
+          error => console.log('error loading data')
+        );
     
     this.O207Color = "Red";
     this.O207Presence = "detected";

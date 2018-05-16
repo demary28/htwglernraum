@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
     PhotoViewer,
     NativeStorage,   
     File,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
