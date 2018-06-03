@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AlertController, ToastController } from 'ionic-angular';
 import { SettingsDarkProvider } from '../../providers/settingdark/settingdark';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 
 @Component({
@@ -13,15 +15,18 @@ export class SettingsPage {
 
     public autoLoad: Boolean;
     public darkTheme: Boolean;
+    public orientationLock: Boolean;
     selectedTheme : String;
 
 constructor(private nativeStorage: NativeStorage, 
     private alertCtrl: AlertController, 
     private toastCtrl:ToastController, 
-    private settings: SettingsDarkProvider
+    private settings: SettingsDarkProvider, 
+    private screenOrientation: ScreenOrientation
     ) {
     this.checkAutoLoad();
     this.checkDarkTheme();
+    this.checkOrientationLock();
 }
 
 checkAutoLoad(){
@@ -37,6 +42,14 @@ checkDarkTheme(){
       .then(
         data => {if(data.darkTheme == "true"){this.darkTheme = true; this.selectedTheme = 'dark-theme';}else {this.darkTheme = false; this.selectedTheme = 'light-theme';}},
         error => {console.log('no darkTheme Setting saved');},
+      );
+  }
+
+  checkOrientationLock(){
+    this.nativeStorage.getItem('SettingOrientationLock')
+      .then(
+        data => {if(data.lock == "true"){this.orientationLock = true;}else {this.orientationLock = false;}},
+        error => {console.log('no AutoLoad Setting saved');},
       );
   }
 
@@ -72,6 +85,22 @@ darkThemeActivater(status:boolean){
       } else {
         
       }
+}
+
+lockScreenOrientation(orientationLock:boolean){
+    if (orientationLock == false){
+        this.screenOrientation.unlock();
+        this.nativeStorage.setItem('SettingOrientationLock', {lock: 'false'})
+        .catch(error => {let alert = this.alertCtrl.create({title: ""+error, subTitle: "", buttons:['OK']});
+                            alert.present();console.error('Error storing Settings')});
+        
+    } else {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        this.nativeStorage.setItem('SettingOrientationLock', {lock: 'true'})
+        .catch(error => {let alert = this.alertCtrl.create({title: ""+error, subTitle: "", buttons:['OK']});
+                            alert.present();console.error('Error storing Settings')});
+        
+    }
 }
 
 showRestartToast(){

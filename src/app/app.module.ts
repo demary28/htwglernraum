@@ -16,6 +16,7 @@ import { File } from '@ionic-native/file';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HTTP } from '@ionic-native/http';
 import { SettingsDarkProvider } from '../providers/settingdark/settingdark';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SettingsDarkProvider } from '../providers/settingdark/settingdark';
     NativeStorage,   
     File,
     HTTP,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SettingsDarkProvider
   ]
