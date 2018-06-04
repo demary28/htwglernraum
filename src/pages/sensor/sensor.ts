@@ -69,7 +69,11 @@ export class SensorDataPage {
 
   showFullImage(img, title){
     this.photoViewer.show(this.file.applicationDirectory + img, title, {share: false});
-   
   }
 
+  showFullRoomImage(){
+    let img : String  = "www/assets/imgs/" + this.RoomID + "Raumplan.png";
+    let title : String = this.RoomID;
+    this.photoViewer.show(this.file.applicationDirectory + img, title.toString(), {share: false});
+  }
 }
