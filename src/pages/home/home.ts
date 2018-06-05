@@ -5,7 +5,6 @@ import { SettingsPage } from '../settings/settings';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { HTTP } from '@ionic-native/http';
 import { SettingsDarkProvider } from '../../providers/settingdark/settingdark';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 @Component({
@@ -49,13 +48,10 @@ export class HomePage {
     public loadingCtrl: LoadingController, 
     private nativeStorage: NativeStorage, 
     private http: HTTP, 
-    private settings: SettingsDarkProvider, 
-    private screenOrientation: ScreenOrientation 
+    private settings: SettingsDarkProvider
     ) {
     this.checkAutoLoad();
     this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
-    this.checkOrientationLock();
-
   }
 
   checkAutoLoad(){
@@ -66,21 +62,11 @@ export class HomePage {
       );
   }
 
-  checkOrientationLock(){
-    this.nativeStorage.getItem('SettingOrientationLock')
-      .then(
-        data => {if(data.lock == "true"){this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);}},
-        error => {console.log('no AutoLoad Setting saved');},
-      );
-  }
-
   doRefresh(refresher) {
     this.updateCards();
     refresher.complete();
     this.Aktualisiert = true;
   }
-
-
 
 
   showRoomInfo(id:String){
