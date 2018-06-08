@@ -26,74 +26,120 @@
         </ion-fab-list>
     </ion-fab>
 
-    <ng-container *ngIf="O206visible">
-    <ion-card (tap)="showRoomInfo('O206')" >
+    <ng-container *ngIf="O205visible">
+    <ion-card (tap)="showRoomInfo('O205')" >
     <ion-card-title>
-      O 206
+      O 205
     </ion-card-title>
-      <img src="assets/imgs/little{{O206Color}}.png" height="180"/>
+      <img src="assets/imgs/little{{O205Color}}.png" height="180"/>
       <ion-row class="card-subtitle">
           <ion-col >
               <p>Presence</p> 
-              <p>{{O206Presence}}</p> 
+              <p>{{O205Presence}}</p> 
           </ion-col>
           <ion-col>
               <p>CO2</p> 
-              <p>{{O206Air}} ppm</p> 
+              <p>{{O205Air}} ppm</p> 
           </ion-col>
           <ion-col>
               <p>Noise</p> 
-              <p>{{O206Noise}} db</p> 
+              <p>{{O205Noise}} db</p> 
           </ion-col>
         </ion-row>
     </ion-card>
 </ng-container>
 
-<ng-container *ngIf="O207visible">
-    <ion-card (tap)="showRoomInfo('O207')">
+<ng-container *ngIf="O206visible">
+    <ion-card (tap)="showRoomInfo('O206')">
         <ion-card-title>
-          O 207
+          O 206
         </ion-card-title>
-          <img src="assets/imgs/little{{O207Color}}.png" height="180"/>
+          <img src="assets/imgs/little{{O206Color}}.png" height="180"/>
           <ion-row class="card-subtitle">
               <ion-col with-30 style="text-align: center">
                   <p>Presence</p> 
-                  <p>{{O207Presence}}</p> 
+                  <p>{{O206Presence}}</p> 
               </ion-col>
               <ion-col with-30 style="text-align: center">
                   <p>CO2</p> 
-                  <p>{{O207Air}} ppm</p> 
+                  <p>{{O206Air}} ppm</p> 
               </ion-col>
               <ion-col with-30 style="text-align: center">
                   <p>Noise</p> 
-                  <p>{{O207Noise}} db</p> 
+                  <p>{{O206Noise}} db</p> 
               </ion-col>
         </ion-row>
     </ion-card>
 </ng-container>
 
-<ng-container *ngIf="O208visible">
-    <ion-card (tap)="showRoomInfo('O208')">
+<ng-container *ngIf="O001visible">
+    <ion-card>
         <ion-card-title>
-            O 208
+            O 001
         </ion-card-title>
-            <img src="assets/imgs/little{{O208Color}}.png" height="180"/>
+            <img src="assets/imgs/little{{O001Color}}.png" height="180"/>
             <ion-row class="card-subtitle">
                 <ion-col >
                     <p>Presence</p> 
-                    <p>{{O208Presence}}</p> 
+                    <p>{{O001Presence}}</p> 
                 </ion-col>
                 <ion-col>
                     <p>CO2</p> 
-                    <p>{{O208Air}} ppm</p> 
+                    <p>{{O001Air}} ppm</p> 
                 </ion-col>
                 <ion-col>
                     <p>Noise</p> 
-                    <p>{{O208Noise}} db</p> 
+                    <p>{{O001Noise}} db</p> 
                 </ion-col>
             </ion-row>
         </ion-card>
     </ng-container>
+
+    <ng-container *ngIf="O101visible">
+        <ion-card >
+            <ion-card-title>
+                O 101
+            </ion-card-title>
+                <img src="assets/imgs/little{{O101Color}}.png" height="180"/>
+                <ion-row class="card-subtitle">
+                    <ion-col >
+                        <p>Presence</p> 
+                        <p>?</p> 
+                    </ion-col>
+                    <ion-col>
+                        <p>CO2</p> 
+                        <p>? ppm</p> 
+                    </ion-col>
+                    <ion-col>
+                        <p>Noise</p> 
+                        <p>? db</p> 
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </ng-container>
+
+        <ng-container *ngIf="O108visible">
+            <ion-card>
+                <ion-card-title>
+                    O 108
+                </ion-card-title>
+                    <img src="assets/imgs/little{{O108Color}}.png" height="180"/>
+                    <ion-row class="card-subtitle">
+                        <ion-col >
+                            <p>Presence</p> 
+                            <p>?</p> 
+                        </ion-col>
+                        <ion-col>
+                            <p>CO2</p> 
+                            <p>? ppm</p> 
+                        </ion-col>
+                        <ion-col>
+                            <p>Noise</p> 
+                            <p>? db</p> 
+                        </ion-col>
+                    </ion-row>
+                </ion-card>
+            </ng-container>
 
 </ion-content>
 

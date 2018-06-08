@@ -15,23 +15,30 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 export class HomePage {
 
+  O205Color: String = "Grey";
+  O205Presence: String = "?";
+  O205Air: String = "?";
+  O205Noise: String;
+  O205visible: Boolean = true;
+
    O206Color: String = "Grey";
    O206Presence: String = "?";
    O206Air: String = "?";
    O206Noise: String = "?";
    O206visible: Boolean = true;
 
-   O207Color: String = "Grey";
-   O207Presence: String = "?";
-   O207Air: String = "?";
-   O207Noise: String;
-   O207visible: Boolean = true;
+   O001Color: String = "Grey";
+   O001Presence: String = "?";
+   O001Air: String = "?";
+   O001Noise: String = "?";
+   O001visible: Boolean = true;
 
-   O208Color: String = "Grey";
-   O208Presence: String = "?";
-   O208Air: String = "?";
-   O208Noise: String = "?";
-   O208visible: Boolean = true;
+   O101Color: String = "Grey";
+   O101visible: Boolean = true;
+
+   O108Color: String = "Grey";
+   O108visible: Boolean = true;
+
 
    Aktualisiert: Boolean = false;
    AutoLoadActivatet: Boolean;
@@ -85,15 +92,15 @@ export class HomePage {
 
   showRoomInfo(id:String){
     if (this.Aktualisiert==true){
+      if (id == "O205"){
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O205Presence, Air: this.O205Air, Noise: this.O205Noise, Actu:true});      
+      }
       if (id == "O206"){
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});      
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});
       }
-      if (id == "O207"){
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O207Presence, Air: this.O207Air, Noise: this.O207Noise, Actu:true});
-      }
-      if (id == "O208"){
+      if (id == "O001"){
         //this.events.publish('setRoomID', id, this.O208Presence, this.O208Air, this.O208Noise);
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O208Presence, Air: this.O208Air, Noise: this.O208Noise, Actu:true});
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O001Presence, Air: this.O001Air, Noise: this.O001Noise, Actu:true});
 
       }
       //this.navCtrl.parent.select(1);      
@@ -116,15 +123,10 @@ export class HomePage {
               alert.present();console.log('error loading data')}
         );
     
-    this.O207Color = "Red";
-    this.O207Presence = "detected";
-    this.O207Air = "1834";
-    this.O207Noise = "89";
-  
-    this.O208Color = "Yellow";
-    this.O208Presence = "detected";
-    this.O208Air = "678";
-    this.O208Noise = "65";
+    this.O205Color = "Red";
+    this.O205Presence = "detected";
+    this.O205Air = "1834";
+    this.O205Noise = "89";
 
     this.O206Color = "Green";
     this.O206Presence = "not detected";
@@ -162,14 +164,20 @@ export class HomePage {
         this.FilterGreen = false;
       }else{
 
+        if(this.O205Color!=category){
+          this.O205visible = false;
+        }
         if(this.O206Color!=category){
           this.O206visible = false;
         }
-        if(this.O207Color!=category){
-          this.O207visible = false;
+        if(this.O001Color!=category){
+          this.O001visible = false;
         }
-        if(this.O208Color!=category){
-          this.O208visible = false;
+        if(this.O101Color!=category){
+          this.O101visible = false;
+        }
+        if(this.O108Color!=category){
+          this.O108visible = false;
         }
 
       if (category == "Red"){
@@ -184,9 +192,12 @@ export class HomePage {
   }
 
   showAll(){
+    this.O205visible = true;
     this.O206visible = true;
-    this.O207visible = true;
-    this.O208visible = true;
+    this.O001visible = true;
+    this.O101visible = true;
+    this.O108visible = true;
+
   }
 
 }
