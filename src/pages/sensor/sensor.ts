@@ -29,10 +29,6 @@ export class SensorDataPage {
     this.Noise = navParams.get("Noise");
     this.aktualisiert = navParams.get("Actu");
     this.setBewertung();
-    
-    //events.subscribe('setRoomID', (id, presence, air, noise) => {
-    //  this.setRoom(id, presence, air, noise);
-    //})
   }
 
   setBewertung(){
