@@ -15,10 +15,15 @@
   .onboard {
     border-color: #110521 !important;
   }
-  .toolbar-background,
-  .toggle-checked {
+
+  .toolbar-background {
     transition: all 1.1s ease;
     background-color: #ececec !important;
+  }
+
+  .toggle-checked {
+    transition: all 1.1s ease;
+    background-color: #110521 !important;
   }
 
   .toolbar-title-md {
@@ -50,6 +55,8 @@
     background-color: rgb(59, 42, 42);
     color: white;
   }
+
+
 
   header header-md {
     background-color: #ececec !important;
