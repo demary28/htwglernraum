@@ -1,15 +1,14 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>
-        Settings
-      </ion-title>
-      <ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>
+      <!--<ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>-->
+      <ion-buttons text-align:center> <img src="assets/logo.svg"> </ion-buttons>
     </ion-navbar>
   </ion-header>
-  
+
   <ion-content>
     <ion-list>
-        <ion-list-header>Behavior</ion-list-header>
+      <ion-title margin-top="1px">Settings</ion-title>
+        <ion-list-header margin-top="1px">Behavior</ion-list-header>
         <ion-item no-lines>
             <ion-label>Load \& refresh automatically</ion-label>
             <ion-toggle color="secondary" [(ngModel)]="autoLoad" (ionChange)="changeAutoLoad(autoLoad)"></ion-toggle>
@@ -24,6 +23,5 @@
             <ion-toggle color="secondary" [(ngModel)]="orientationLock" (ionChange)="lockScreenOrientation(orientationLock)"></ion-toggle>
       </ion-item>
       </ion-list>
-    
+
   </ion-content>
-  

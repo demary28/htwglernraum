@@ -1,7 +1,7 @@
 .dark-theme {
 
 
-  // From here to the next checkpoint is for theming the header - toolbar navbar but not the main content 
+  // From here to the next checkpoint is for theming the header - toolbar navbar but not the main content
   transition: all 1.1s ease;
   background-color: #110521;
   p,
@@ -18,7 +18,11 @@
   .toolbar-background,
   .toggle-checked {
     transition: all 1.1s ease;
-    background-color: #110521 !important;
+    background-color: #ececec !important;
+  }
+
+  .toolbar-title-md {
+    color: #1fa6a0;
   }
 
   //From here is where the main content is modified, this includes the backgorund of the page, ion-items and more
@@ -46,5 +50,11 @@
     background-color: rgb(59, 42, 42);
     color: white;
   }
-  
+
+  header header-md {
+    background-color: #ececec !important;
+  }
+
+
+
 }
