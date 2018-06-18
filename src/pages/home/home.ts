@@ -50,6 +50,8 @@ export class HomePage {
 
   selectedTheme: String;
 
+  numberOfRequests: string = "0";
+
   
 
   constructor(public navCtrl: NavController, 
@@ -114,31 +116,55 @@ export class HomePage {
         content: "Updating...", 
         
     });
-     loader.present();
+    loader.present();
 
-     var date =  new Date;
-     //var year = date.getFullYear();
-     var year = 2018;
+    var date =  new Date;
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    var hours = date.getHours()-2;
+    var minutes = date.getMinutes()-1;
 
-     //var month = date.getMonth()+1;
-     var month = 6;
+    this.makeURLrequest(year, month, day, hours, minutes);     
+    
+    this.showAll();
+    this.Aktualisiert = true;
+    loader.dismiss();
+  }
 
-     //var day = date.getDate();
-     var day = 13;
+  makeURLrequest(year, month, day, hours, minutes){
 
-     //var hours = date.getHours()-2;
-     var hours = 13;
-     //var minutes = date.getMinutes();
-     var minutes = 56;
-
-     var url = "https://htwgmariusstorage01.blob.core.windows.net/htwgstoragecontainer/RaspberryHTWG/00/" + year + "/0" + month + "/" + day +"/" + hours + "/" + minutes
-
+    //Fehlerkorrekturen
+    if (parseInt(month) < 10){
+      month = "0"+parseInt(month);
+    }
+    if (parseInt(day) < 10){
+      day = "0"+parseInt(day);
+    }
+    if(parseInt(minutes) == -1){
+      hours = parseInt(hours) -1;
+      minutes = 59; 
+    }
+    if (parseInt(hours) < 10){
+      hours = "0"+parseInt(hours);
+    }
+    if (parseInt(minutes) < 10){
+      minutes = "0"+parseInt(minutes);
+    }
     
 
-     this.http.get(url,{},{})
+    let alert8 = this.alertCtrl.create({title: "HTTP", subTitle: "Request send: "+ year + "/" + month + "/" + day +"/" + hours + "/" + minutes , buttons:['OK']});
+    alert8.present();
+    
+    var url = "https://htwgmariusstorage01.blob.core.windows.net/htwgstoragecontainer/RaspberryHTWG/00/" + year + "/" + month + "/" + day +"/" + hours + "/" + minutes
+
+    this.http.get(url,{},{})
         .then(
-          data => {
-            var str = data.data
+          response => {
+
+           
+
+            var str = response.data
             let alert = this.alertCtrl.create({title: "HTTP", subTitle: ""+str, buttons:['OK']});
               //alert.present();
               console.log('data received')
@@ -199,16 +225,25 @@ export class HomePage {
                 }            
                 this.makeItColorfull("O206");
         
-              }
-            
+              } 
+              
+              this.numberOfRequests = "0" ;
+
             },
-          error => {let alert = this.alertCtrl.create({title: "HTTP Error", subTitle: "There could be a problem with your internet connection. "+JSON.stringify(error), buttons:['OK']});
+          error => {
+            if(error.status == 404){
+              this.numberOfRequests = (parseInt(this.numberOfRequests) + 1).toString() ;
+              if (parseInt(this.numberOfRequests) >= 6){
+                let alertNoBackend = this.alertCtrl.create({title: "System Failure", subTitle: "Seems there is no data of the last 5 minutes. Please try again later", buttons:['OK']});
+                alertNoBackend.present();
+              }else 
+              this.makeURLrequest(year, month, day, hours, parseInt(minutes)-1);
+            } else{
+            let alert = this.alertCtrl.create({title: "HTTP Error", subTitle: "There could be a problem with your internet connection. "+JSON.stringify(error), buttons:['OK']});
               alert.present();console.log('error loading data')}
+            }
         );
-    
-    this.showAll();
-    this.Aktualisiert = true;
-    loader.dismiss();
+
   }
 
   fabController(actionString: string, fab: FabContainer){
