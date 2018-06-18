@@ -1,10 +1,11 @@
 page-home {
 
     #icons{
-        float:left; 
+
+        float:left;
         width:22%;
         height: auto;
-        margin: 1%; 
+        margin: 1%;
     }
 
     .summeryIcons{
@@ -20,7 +21,7 @@ page-home {
           width: 100%;
           color: #fff;
         }
-      
+
     }
 
     .card-background-page {
@@ -29,7 +30,7 @@ page-home {
           position: relative;
           text-align: center;
         }
-      
+
         .card-title {
           position: absolute;
           top: 10%;
@@ -38,7 +39,7 @@ page-home {
           font-weight: bold;
           color: #fff;
         }
-      
+
         .card-subtitle {
           font-size: 1.0em;
           position: absolute;
@@ -46,7 +47,47 @@ page-home {
           width: 100%;
           color: #fff;
         }
-      
+
       }
 
+  .fab-md {
+    background-color: #1fa6a0;
+  }
+
+  .ion-md-settings:before {
+    color: #fff;
+  }
+
+  .ion-md-refresh:before {
+    color: #fff;
+  }
+
 }
+
+.toolbar-title-md {
+  color: #1fa6a0;
+}
+
+.tabs-md .tabbar {
+  background: #ececec;
+}
+
+.tabs-md .tab-button-icon {
+  color: #000;
+
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: #1fa6a0;
+}
+
+
+.tabs-md .tab-button[aria-selected=false] {
+  color: #000;
+}
+
+
+.tabs-md .tab-button[aria-selected=true] {
+  color: #1fa6a0;
+}
+

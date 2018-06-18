@@ -1,22 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-align:center>Student rooms</ion-title>
-    <ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>
+    <!--<ion-title text-align:center>Student rooms</ion-title>-->
+    <!--<ion-buttons text-align:center> <img height=44 src="assets/logo2.svg"> </ion-buttons>-->
+    <ion-buttons text-align:center> <img src="assets/logo.svg"> </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page" >
-
+    <ion-title margin-top="1px">Student rooms</ion-title>
     <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content 
+        <ion-refresher-content
         pullingIcon="arrow-round-down"
         pullingText="Pull to refresh"
         refreshingSpinner="circles">
         </ion-refresher-content>
     </ion-refresher>
-            
 
-    
+
+
     <ion-fab right bottom #fab1>
         <button ion-fab color="vibrant" mini ><ion-icon name="add"></ion-icon></button>
         <ion-fab-list side="top">
@@ -34,16 +35,16 @@
       <img src="assets/imgs/little{{O205Color}}.png" height="180"/>
       <ion-row class="card-subtitle">
           <ion-col >
-              <p>Presence</p> 
-              <p>{{O205Presence}}</p> 
+              <p>Presence</p>
+              <p>{{O205Presence}}</p>
           </ion-col>
           <ion-col>
-              <p>CO2</p> 
-              <p>{{O205Air}} ppm</p> 
+              <p>CO2</p>
+              <p>{{O205Air}} ppm</p>
           </ion-col>
           <ion-col>
-              <p>Noise</p> 
-              <p>{{O205Noise}} db</p> 
+              <p>Noise</p>
+              <p>{{O205Noise}} db</p>
           </ion-col>
         </ion-row>
     </ion-card>
@@ -57,16 +58,16 @@
           <img src="assets/imgs/little{{O206Color}}.png" height="180"/>
           <ion-row class="card-subtitle">
               <ion-col with-30 style="text-align: center">
-                  <p>Presence</p> 
-                  <p>{{O206Presence}}</p> 
+                  <p>Presence</p>
+                  <p>{{O206Presence}}</p>
               </ion-col>
               <ion-col with-30 style="text-align: center">
-                  <p>CO2</p> 
-                  <p>{{O206Air}} ppm</p> 
+                  <p>CO2</p>
+                  <p>{{O206Air}} ppm</p>
               </ion-col>
               <ion-col with-30 style="text-align: center">
-                  <p>Noise</p> 
-                  <p>{{O206Noise}} db</p> 
+                  <p>Noise</p>
+                  <p>{{O206Noise}} db</p>
               </ion-col>
         </ion-row>
     </ion-card>
@@ -80,16 +81,16 @@
             <img src="assets/imgs/little{{O001Color}}.png" height="180"/>
             <ion-row class="card-subtitle">
                 <ion-col >
-                    <p>Presence</p> 
-                    <p>{{O001Presence}}</p> 
+                    <p>Presence</p>
+                    <p>{{O001Presence}}</p>
                 </ion-col>
                 <ion-col>
-                    <p>CO2</p> 
-                    <p>{{O001Air}} ppm</p> 
+                    <p>CO2</p>
+                    <p>{{O001Air}} ppm</p>
                 </ion-col>
                 <ion-col>
-                    <p>Noise</p> 
-                    <p>{{O001Noise}} db</p> 
+                    <p>Noise</p>
+                    <p>{{O001Noise}} db</p>
                 </ion-col>
             </ion-row>
         </ion-card>
@@ -103,16 +104,16 @@
                 <img src="assets/imgs/little{{O101Color}}.png" height="180"/>
                 <ion-row class="card-subtitle">
                     <ion-col >
-                        <p>Presence</p> 
-                        <p>?</p> 
+                        <p>Presence</p>
+                        <p>?</p>
                     </ion-col>
                     <ion-col>
-                        <p>CO2</p> 
-                        <p>? ppm</p> 
+                        <p>CO2</p>
+                        <p>? ppm</p>
                     </ion-col>
                     <ion-col>
-                        <p>Noise</p> 
-                        <p>? db</p> 
+                        <p>Noise</p>
+                        <p>? db</p>
                     </ion-col>
                 </ion-row>
             </ion-card>
@@ -126,16 +127,16 @@
                     <img src="assets/imgs/little{{O108Color}}.png" height="180"/>
                     <ion-row class="card-subtitle">
                         <ion-col >
-                            <p>Presence</p> 
-                            <p>?</p> 
+                            <p>Presence</p>
+                            <p>?</p>
                         </ion-col>
                         <ion-col>
-                            <p>CO2</p> 
-                            <p>? ppm</p> 
+                            <p>CO2</p>
+                            <p>? ppm</p>
                         </ion-col>
                         <ion-col>
-                            <p>Noise</p> 
-                            <p>? db</p> 
+                            <p>Noise</p>
+                            <p>? db</p>
                         </ion-col>
                     </ion-row>
                 </ion-card>
