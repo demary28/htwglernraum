@@ -1,29 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Room \& Sensor Details
-    </ion-title>
-    <ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>
+     <!--<ion-title text-align:center>Room \& Sensor Details</ion-title>-->
+     <!--<ion-buttons end> <img height=44 src="assets/htwg-logo.png"> </ion-buttons>-->
+     <ion-buttons text-align:center> <img src="assets/logo.svg"> </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="sensorLayout">
+<ion-title margin-top="1px" text-left>Room \& Sensor Details</ion-title>
 <p *ngIf="aktualisiert==false"> {{RoomID}}</p>
 
 <ng-container *ngIf="aktualisiert">
   <h2> Room {{RoomID}}</h2>
-    <ion-row class="sensorLayout">
+    <ion-row class="sensorLayout" (tap)="showSensorPage()" >
+        <ion-col>
+            <img src="assets/imgs/little{{presenceColor}}.png" height="70"/>
+            <p class="card-firstline">Presence</p> 
+            <p class="card-secondline">{{Presence}}</p>
+        </ion-col>
+        <ion-col>
+            <img src="assets/imgs/little{{airColor}}.png" height="70"/>
+            <p class="card-firstline">Air Quality</p> 
+            <p class="card-secondline">{{Air}} %</p> 
+        </ion-col>
         <ion-col >
-            <p>Presence</p> 
-            <p>{{Presence}}</p>
-        </ion-col>
-        <ion-col>
-            <p>Air</p> 
-            <p>{{Air}} %</p> 
-        </ion-col>
-        <ion-col>
-            <p>Noise</p> 
-            <p>{{Noise}} %</p> 
+            <img src="assets/imgs/little{{noiseColor}}.png" height="70"/>
+            <p class="card-firstline">Noise Level</p> 
+            <p class="card-secondline">{{Noise}} %</p> 
         </ion-col>
     </ion-row>
     <p class="sensorLayout">{{bewertung}}</p>
@@ -31,7 +34,7 @@
   <ion-row class="sensorLayout">
     <ion-col>
         <p>Room map</p> 
-        <img src="{{'assets/imgs/'+RoomID+'Raumplan.jpg'}}" height="180" (tap)="showFullRoomImage()"/>
+        <img src="{{'assets/imgs/'+RoomID+'Raumplan.jpg'}}" height="140" (tap)="showFullRoomImage()"/>
     </ion-col>
     <ion-col>
       <p>Number of workplaces</p> 
@@ -41,7 +44,7 @@
   </ion-row>
 
   <p>Map of the area</p> 
-  <img src="assets/imgs/Lageplan.png" height="180" (tap)="showFullImage('www/assets/imgs/Lageplan.png', 'Lageplan')" />
+  <img src="assets/imgs/Lageplan.png" height="200" (tap)="showFullImage('www/assets/imgs/Lageplan.png', 'Lageplan')" />
 </ng-container>
 
 

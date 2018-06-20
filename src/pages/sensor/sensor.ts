@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, Events, NavParams } from 'ionic-angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
-import { NAV } from 'ionic-angular/navigation/nav-util';
+import { SensorHelpPage } from '../sensorHelp/SensorHelp';
 
 @Component({
   selector: 'page-sensor',
@@ -20,6 +20,11 @@ export class SensorDataPage {
   private limitAirGood: Number;
   private limitAirOK: Number;
 
+  public presenceColor: String;
+  public noiseColor: String;
+  public airColor: String;
+
+
   constructor(public navCtrl: NavController, 
               public events:Events, 
               private photoViewer: PhotoViewer, 
@@ -35,6 +40,7 @@ export class SensorDataPage {
     this.limitAirGood = navParams.get("limitAirGood");
     this.limitAirOK = navParams.get("limitAirOK");
     this.setBewertung();
+    this.makeItColorfull();
   }
 
   setBewertung(){
@@ -69,8 +75,28 @@ export class SensorDataPage {
       }
 
     }
-  
+  }
 
+  makeItColorfull(){
+    if (this.Air <= this.limitAirOK){
+      this.airColor = "Red";
+    }else if (this.Air <= this.limitAirGood){
+      this.airColor = "Yellow";
+    } else {
+      this.airColor = "Green";
+    }
+
+    if (this.Presence=="detected" ){
+      this.presenceColor = "Yellow";
+    } else {
+      this.presenceColor = "Green";
+    }
+
+    if (this.Noise <= this.limitNoiseGood){
+      this.noiseColor = "Green";
+    } else {
+      this.noiseColor = "Red";
+    }
   }
 
   showFullImage(img, title){
@@ -81,5 +107,9 @@ export class SensorDataPage {
     let img : String  = "www/assets/imgs/" + this.RoomID + "Raumplan.jpg";
     let title : String = this.RoomID;
     this.photoViewer.show(this.file.applicationDirectory + img, title.toString(), {share: false});
+  }
+
+  showSensorPage(){
+    this.navCtrl.push(SensorHelpPage);
   }
 }

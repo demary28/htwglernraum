@@ -1,6 +1,18 @@
 page-sensor {
 
     .sensorLayout{
-        text-align: center
+        text-align: center;
+    }
+    .card-firstline {
+        font-size: 1.0em;
+        position: absolute;
+        top: 5%;
+        width: 95%;
+    }
+    .card-secondline {
+        font-size: 1.0em;
+        position: absolute;
+        top: 35%;
+        width: 95%;
     }
 }

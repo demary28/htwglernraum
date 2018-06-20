@@ -7,18 +7,18 @@
   
   <ion-content>
     <ion-list>
-      <ion-title margin-top="1px">Sensor Help Page</ion-title>
-      <ion-list-header>Presence Sensor</ion-list-header>
+      <ion-title margin-top="1px">Value Help Page</ion-title>
+      <h2 text-center>Presence Value</h2>
         <ion-item text-wrap>
-            The presence sensors are passive infrared sensors (PIR). They are mounted on the ceiling in the middle of the room. They detect motion in an angle of 110 degree.
+            <p text-center>detected - not detected</p>The presence sensors are passive infrared sensors (PIR). They are mounted on the ceiling in the middle of the room. They detect motion in an angle of 110 degree.
         </ion-item>
-        <ion-list-header>Air Sensor</ion-list-header>
+        <h2 text-center>Air Quality</h2>
         <ion-item text-wrap>
-            The gas sensor measures lot of different values and calculates an percentage over all. 100% is the best air quality, 0% is worst value. Each sensor has be calibrated manually therefor the result may variate.
+            <p text-center>0 - 100% best at 100% </p>The gas sensor measures different values like humidity, pressure and gas resistance and calculates an percentage over all. 100% is the best air quality, 0% is worst. Each sensor has be calibrated manually therefor the results may variate.
         </ion-item>
-        <ion-list-header>Noise Sensor</ion-list-header>
+        <h2 text-center>Noise Level</h2>
         <ion-item text-wrap>
-            The noise sensor measures sound waves in percentages of maximum calibration. 100% is the worst value, 0% is quietest. Each sensor has be calibrated manually therefor the result may variate. But you can assume that 100%  correspond to about 120 decibel.
+            <p text-center>0 - 100% best at 0% </p>The noise sensor measures sound waves in percentages of maximum calibration in average of 3 seconds. 100% is the loudest, 0% is quietest. Each sensor has be calibrated manually therefor the results may variate. You can assume that 100%  correspond to about 100 decibel.
         </ion-item>
         
       </ion-list>
