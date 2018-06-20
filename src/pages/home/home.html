@@ -23,7 +23,7 @@
         <ion-fab-list side="top">
             <button ion-fab (tap)="fabController('update', fab1)"><ion-icon name="refresh"></ion-icon></button>
             <button ion-fab (tap)="fabController('settings', fab1)"><ion-icon name="settings"></ion-icon></button>
-
+            <button ion-fab (tap)="fabController('sensorHelp', fab1)"><ion-icon name="help"></ion-icon></button>
         </ion-fab-list>
     </ion-fab>
 
@@ -39,12 +39,12 @@
               <p>{{O205Presence}}</p>
           </ion-col>
           <ion-col>
-              <p>CO2</p>
-              <p>{{O205Air}} ppm</p>
+              <p>Air</p>
+              <p>{{O205Air}} %</p>
           </ion-col>
           <ion-col>
               <p>Noise</p>
-              <p>{{O205Noise}} db</p>
+              <p>{{O205Noise}} %</p>
           </ion-col>
         </ion-row>
     </ion-card>
@@ -62,12 +62,12 @@
                   <p>{{O206Presence}}</p>
               </ion-col>
               <ion-col with-30 style="text-align: center">
-                  <p>CO2</p>
-                  <p>{{O206Air}} ppm</p>
+                  <p>Air</p>
+                  <p>{{O206Air}} %</p>
               </ion-col>
               <ion-col with-30 style="text-align: center">
                   <p>Noise</p>
-                  <p>{{O206Noise}} db</p>
+                  <p>{{O206Noise}} %</p>
               </ion-col>
         </ion-row>
     </ion-card>
@@ -85,12 +85,12 @@
                     <p>{{O001Presence}}</p>
                 </ion-col>
                 <ion-col>
-                    <p>CO2</p>
-                    <p>{{O001Air}} ppm</p>
+                    <p>Air</p>
+                    <p>{{O001Air}} %</p>
                 </ion-col>
                 <ion-col>
                     <p>Noise</p>
-                    <p>{{O001Noise}} db</p>
+                    <p>{{O001Noise}} %</p>
                 </ion-col>
             </ion-row>
         </ion-card>
@@ -108,12 +108,12 @@
                         <p>?</p>
                     </ion-col>
                     <ion-col>
-                        <p>CO2</p>
-                        <p>? ppm</p>
+                        <p>Air</p>
+                        <p>?</p>
                     </ion-col>
                     <ion-col>
                         <p>Noise</p>
-                        <p>? db</p>
+                        <p>?</p>
                     </ion-col>
                 </ion-row>
             </ion-card>
@@ -131,12 +131,12 @@
                             <p>?</p>
                         </ion-col>
                         <ion-col>
-                            <p>CO2</p>
-                            <p>? ppm</p>
+                            <p>Air</p>
+                            <p>?</p>
                         </ion-col>
                         <ion-col>
                             <p>Noise</p>
-                            <p>? db</p>
+                            <p>?</p>
                         </ion-col>
                     </ion-row>
                 </ion-card>

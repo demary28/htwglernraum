@@ -8,6 +8,7 @@ import { SettingsDarkProvider } from '../../providers/settingdark/settingdark';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { Timestamp } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { SensorHelpPage } from "../sensorHelp/SensorHelp";
 
 
 @Component({
@@ -51,6 +52,13 @@ export class HomePage {
   selectedTheme: String;
 
   numberOfRequests: string = "0";
+
+  //Grenzwerte für Einfärbung/Bewertung
+  limitNoiseGood:String = "62";
+  limitAirGood:String = "90";
+  limitAirOK:String = "75";
+
+
 
   
 
@@ -97,14 +105,14 @@ export class HomePage {
   showRoomInfo(id:String){
     if (this.Aktualisiert==true){
       if (id == "O205"){
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O205Presence, Air: this.O205Air, Noise: this.O205Noise, Actu:true});      
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O205Presence, Air: this.O205Air, Noise: this.O205Noise, Actu:true, limitNoiseGood: this.limitNoiseGood, limitAirGood: this.limitAirGood, limitAirOK: this.limitAirOK});      
       }
       if (id == "O206"){
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true});
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O206Presence, Air: this.O206Air, Noise: this.O206Noise, Actu:true, limitNoiseGood: this.limitNoiseGood, limitAirGood: this.limitAirGood, limitAirOK: this.limitAirOK});
       }
       if (id == "O001"){
         //this.events.publish('setRoomID', id, this.O208Presence, this.O208Air, this.O208Noise);
-        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O001Presence, Air: this.O001Air, Noise: this.O001Noise, Actu:true});
+        this.navCtrl.push(SensorDataPage, {id: id, Presence: this.O001Presence, Air: this.O001Air, Noise: this.O001Noise, Actu:true, limitNoiseGood: this.limitNoiseGood, limitAirGood: this.limitAirGood, limitAirOK: this.limitAirOK});
 
       }
       //this.navCtrl.parent.select(1);      
@@ -255,6 +263,9 @@ export class HomePage {
     if(actionString == "settings"){
       this.navCtrl.push(SettingsPage);
     }
+    if(actionString == "sensorHelp"){
+      this.navCtrl.push(SensorHelpPage);
+    }
     fab.close();
   }
 
@@ -304,27 +315,27 @@ makeItColorfull(RoomName){
   if (RoomName == "O205"){
 
       switch (true){
-        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=1400 && parseInt(this.O205Noise.toString())<=62):{
+        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Green";
           break;
         }
-        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=1400 && parseInt(this.O205Noise.toString())>=62):{
+        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
         this.O205Color = "Yellow";
         break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=1400 && parseInt(this.O205Noise.toString())<=62):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Yellow";
           break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=1400 && parseInt(this.O205Noise.toString())<=62):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Red";
           break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=1000 && parseInt(this.O205Noise.toString())>=62):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Yellow";
           break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())>=1000 && parseInt(this.O205Noise.toString())>=62):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Red";
           break;
         }
@@ -334,27 +345,27 @@ makeItColorfull(RoomName){
       }
     }else if (RoomName == "O206"){
         switch (true){
-          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=1400 && parseInt(this.O206Noise.toString())<=62):{
+          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
             this.O206Color = "Green";
             break;
           }
-          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=1400 && parseInt(this.O206Noise.toString())>=62):{
+          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
           this.O206Color = "Yellow";
           break;
           }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=1400 && parseInt(this.O206Noise.toString())<=62):{
+          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
             this.O206Color = "Yellow";
             break;
           }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=1400 && parseInt(this.O206Noise.toString())<=62):{
+          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
             this.O206Color = "Red";
             break;
           }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=1000 && parseInt(this.O206Noise.toString())>=62):{
+          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
             this.O206Color = "Yellow";
             break;
           }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())>=1000 && parseInt(this.O206Noise.toString())>=62):{
+          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
             this.O206Color = "Red";
             break;
           }
