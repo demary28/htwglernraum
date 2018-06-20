@@ -47,6 +47,10 @@ export class SensorDataPage {
         this.bewertung = "Room seems to be very noisy. Maybe there are roadworks nearbby. Recommendation: Look for another room";
         break;
       }
+      case (this.Presence=="not detected" && this.Air<=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
+        this.bewertung = "Room seems to be free but the airquality is bad. Recommendation: Give it a try and open a window";
+        break;
+      }
       case (this.Presence=="detected" && this.Air>=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
         this.bewertung = "Seems that only a few persons are woking in this room quietly. Recommendation: Take this room";
         break;
