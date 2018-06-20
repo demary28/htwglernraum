@@ -315,15 +315,15 @@ makeItColorfull(RoomName){
   if (RoomName == "O205"){
 
       switch (true){
-        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
+        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Green";
           break;
         }
-        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+        case (this.O205Presence=="not detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
         this.O205Color = "Yellow";
         break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Yellow";
           break;
         }
@@ -331,11 +331,11 @@ makeItColorfull(RoomName){
           this.O205Color = "Red";
           break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Yellow";
           break;
         }
-        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+        case (this.O205Presence=="detected" && parseInt(this.O205Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O205Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
           this.O205Color = "Red";
           break;
         }
@@ -344,36 +344,36 @@ makeItColorfull(RoomName){
         }
       }
     }else if (RoomName == "O206"){
-        switch (true){
-          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
-            this.O206Color = "Green";
-            break;
-          }
-          case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+      switch (true){
+        case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
+          this.O206Color = "Green";
+          break;
+        }
+        case (this.O206Presence=="not detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+        this.O206Color = "Yellow";
+        break;
+        }
+        case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
           this.O206Color = "Yellow";
           break;
-          }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
-            this.O206Color = "Yellow";
-            break;
-          }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
-            this.O206Color = "Red";
-            break;
-          }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
-            this.O206Color = "Yellow";
-            break;
-          }
-          case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
-            this.O206Color = "Red";
-            break;
-          }
-          default:{
-            this.O206Color = "Yellow";
-          }
+        }
+        case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())<=parseInt(this.limitNoiseGood.toString())):{
+          this.O206Color = "Red";
+          break;
+        }
+        case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())>=parseInt(this.limitAirGood.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+          this.O206Color = "Yellow";
+          break;
+        }
+        case (this.O206Presence=="detected" && parseInt(this.O206Air.toString())<=parseInt(this.limitAirOK.toString()) && parseInt(this.O206Noise.toString())>=parseInt(this.limitNoiseGood.toString())):{
+          this.O206Color = "Red";
+          break;
+        }
+        default:{
+          this.O206Color = "Yellow";
         }
       }
+    }
   }
 
   showAll(){

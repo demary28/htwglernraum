@@ -39,23 +39,23 @@ export class SensorDataPage {
 
   setBewertung(){
     switch (true){
-      case (this.Presence=="not detected" && this.Air<=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
+      case (this.Presence=="not detected" && this.Air>=this.limitAirGood && this.Noise<=this.limitNoiseGood):{
         this.bewertung = "Room seems to be free. Recommendation: Take this room";
         break;
       }
-      case (this.Presence=="not detected" && this.Air<=this.limitAirOK && this.Noise>=this.limitNoiseGood):{
+      case (this.Presence=="not detected" && this.Air>=this.limitAirOK && this.Noise>=this.limitNoiseGood):{
         this.bewertung = "Room seems to be very noisy. Maybe there are roadworks nearbby. Recommendation: Look for another room";
         break;
       }
-      case (this.Presence=="detected" && this.Air<=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
+      case (this.Presence=="detected" && this.Air>=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
         this.bewertung = "Seems that only a few persons are woking in this room quietly. Recommendation: Take this room";
         break;
       }
-      case (this.Presence=="detected" && this.Air<=this.limitAirGood && this.Noise<=this.limitNoiseGood):{
+      case (this.Presence=="detected" && this.Air<=this.limitAirOK && this.Noise<=this.limitNoiseGood):{
         this.bewertung = "Seems that many persons are woking in this room, so the Air is bad. Recommendation: Look for another room";
         break;
       }
-      case (this.Presence=="detected" && this.Air<=this.limitAirOK && this.Noise>=this.limitNoiseGood):{
+      case (this.Presence=="detected" && this.Air>=this.limitAirOK && this.Noise>=this.limitNoiseGood):{
         this.bewertung = "Seems that either many people are working in that room with open window or few people loudly. Recommendation: Give it a try and bring headphones :)";
         break;
       }
