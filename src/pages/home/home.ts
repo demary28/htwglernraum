@@ -153,8 +153,8 @@ export class HomePage {
     }
     
 
-    let alert8 = this.alertCtrl.create({title: "HTTP", subTitle: "Request send: "+ year + "/" + month + "/" + day +"/" + hours + "/" + minutes , buttons:['OK']});
-    alert8.present();
+    //let alert8 = this.alertCtrl.create({title: "HTTP", subTitle: "Request send: "+ year + "/" + month + "/" + day +"/" + hours + "/" + minutes , buttons:['OK']});
+    //alert8.present();
     
     var url = "https://htwgmariusstorage01.blob.core.windows.net/htwgstoragecontainer/RaspberryHTWG/00/" + year + "/" + month + "/" + day +"/" + hours + "/" + minutes
 
