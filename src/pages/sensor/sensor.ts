@@ -82,20 +82,26 @@ export class SensorDataPage {
       this.airColor = "Red";
     }else if (this.Air <= this.limitAirGood){
       this.airColor = "Yellow";
-    } else {
+    } else  if (this.Air >= this.limitAirGood){
       this.airColor = "Green";
+    }else {
+      this.airColor = "Grey";
     }
 
     if (this.Presence=="detected" ){
       this.presenceColor = "Yellow";
-    } else {
+    } else if (this.Presence=="not detected"){
       this.presenceColor = "Green";
+    }else {
+      this.presenceColor = "Grey";
     }
 
     if (this.Noise <= this.limitNoiseGood){
       this.noiseColor = "Green";
-    } else {
+    } else if (this.Noise >= this.limitNoiseGood){
       this.noiseColor = "Red";
+    }else {
+      this.noiseColor = "Grey";
     }
   }
 
