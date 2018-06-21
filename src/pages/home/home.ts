@@ -227,9 +227,9 @@ export class HomePage {
                 separator = restStr.indexOf(": ");
                 separator = restStr.indexOf(": ");
                 if (restStr.substring(separator+2).toString() == "True"){
-                  this.O205Presence = "detected";
+                  this.O206Presence = "detected";
                 } else {
-                  this.O205Presence = "not detected";
+                  this.O206Presence = "not detected";
                 }            
                 this.makeItColorfull("O206");
         

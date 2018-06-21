@@ -97,8 +97,6 @@ export class SensorDataPage {
       this.presenceColor = "Grey";
     }
 
-    let alert8 = this.alertCtrl.create({title: "Comparison", subTitle: " "+this.Noise , buttons:['OK']});
-    //alert8.present();
     if (this.Noise <= this.limitNoiseGood){
       this.noiseColor = "Green";
     }else if (this.Noise.toString() >= "?"){
