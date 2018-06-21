@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Events, NavParams } from 'ionic-angular';
+import { NavController, Events, NavParams, AlertController } from 'ionic-angular';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
 import { File } from '@ionic-native/file';
 import { SensorHelpPage } from '../sensorHelp/SensorHelp';
@@ -29,7 +29,8 @@ export class SensorDataPage {
               public events:Events, 
               private photoViewer: PhotoViewer, 
               private file: File, 
-              public navParams: NavParams) {
+              public navParams: NavParams, 
+              private alertCtrl: AlertController) {
 
     this.RoomID = navParams.get("id");
     this.Presence = navParams.get("Presence");
@@ -82,26 +83,28 @@ export class SensorDataPage {
       this.airColor = "Red";
     }else if (this.Air <= this.limitAirGood){
       this.airColor = "Yellow";
-    } else  if (this.Air >= this.limitAirGood){
-      this.airColor = "Green";
-    }else {
+    } else  if (this.Air.toString() == "?"){
       this.airColor = "Grey";
+    }else {
+      this.airColor = "Green";
     }
 
     if (this.Presence=="detected" ){
       this.presenceColor = "Yellow";
-    } else if (this.Presence=="not detected"){
+    }else if (this.Presence=="not detected"){
       this.presenceColor = "Green";
     }else {
       this.presenceColor = "Grey";
     }
 
+    let alert8 = this.alertCtrl.create({title: "Comparison", subTitle: " "+this.Noise , buttons:['OK']});
+    //alert8.present();
     if (this.Noise <= this.limitNoiseGood){
       this.noiseColor = "Green";
-    } else if (this.Noise >= this.limitNoiseGood){
-      this.noiseColor = "Red";
-    }else {
+    }else if (this.Noise.toString() >= "?"){
       this.noiseColor = "Grey";
+    }else {
+      this.noiseColor = "Red";
     }
   }
 
