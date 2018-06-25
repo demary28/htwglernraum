@@ -127,11 +127,11 @@ export class HomePage {
     loader.present();
 
     var date =  new Date;
-    var year = date.getFullYear();
-    var month = date.getMonth()+1;
-    var day = date.getDate();
-    var hours = date.getHours()-2;
-    var minutes = date.getMinutes()-1;
+    var year = date.getUTCFullYear();
+    var month = date.getUTCMonth()+1;
+    var day = date.getUTCDate();
+    var hours = date.getUTCHours();
+    var minutes = date.getUTCMinutes()-1;
 
     this.makeURLrequest(year, month, day, hours, minutes);     
     
