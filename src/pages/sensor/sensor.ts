@@ -99,7 +99,7 @@ export class SensorDataPage {
 
     if (this.Noise <= this.limitNoiseGood){
       this.noiseColor = "Green";
-    }else if (this.Noise.toString() >= "?"){
+    }else if (this.Noise.toString() == "?"){
       this.noiseColor = "Grey";
     }else {
       this.noiseColor = "Red";
