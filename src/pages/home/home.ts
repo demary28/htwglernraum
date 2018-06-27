@@ -54,9 +54,10 @@ export class HomePage {
   numberOfRequests: string = "0";
 
   //Grenzwerte für Einfärbung/Bewertung
-  limitNoiseGood:String = "62";
-  limitAirGood:String = "90";
-  limitAirOK:String = "75";
+  limitNoiseGood:String = "18";
+  limitNoiseOK:String = "27";
+  limitAirGood:String = "92";
+  limitAirOK:String = "85";
 
 
 
