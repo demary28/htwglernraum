@@ -79,9 +79,9 @@ export class SensorDataPage {
   }
 
   makeItColorfull(){
-    if (this.Air <= this.limitAirOK){
+    if (this.Air.valueOf() <= this.limitAirOK.valueOf()){
       this.airColor = "Red";
-    }else if (this.Air <= this.limitAirGood){
+    }else if (this.Air.valueOf() <= this.limitAirGood.valueOf()){
       this.airColor = "Yellow";
     } else  if (this.Air.toString() == "?"){
       this.airColor = "Grey";
@@ -97,7 +97,7 @@ export class SensorDataPage {
       this.presenceColor = "Grey";
     }
 
-    if (this.Noise <= this.limitNoiseGood){
+    if (this.Noise.valueOf() <= this.limitNoiseGood.valueOf()){
       this.noiseColor = "Green";
     }else if (this.Noise.toString() == "?"){
       this.noiseColor = "Grey";
